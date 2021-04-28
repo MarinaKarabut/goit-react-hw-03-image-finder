@@ -26,7 +26,8 @@ class ImagesFinder extends Component {
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    if (prevState.searchQuery !== this.state.searchQuery) {
+    const {loading } =this.state
+    if (loading) {
       this.fetchImages();
     }
     if (snapshot !== null) {
@@ -38,7 +39,7 @@ class ImagesFinder extends Component {
   }
 
   onChangeQuery = query => {
-    this.setState({ searchQuery: query, page: 1, hits: [], error: null });
+    this.setState({ searchQuery: query, page: 1, hits: [], error: null, loading:true });
   };
 
   fetchImages = () => {
@@ -48,7 +49,6 @@ class ImagesFinder extends Component {
       page,
     };
 
-    this.setState({ loading: true });
 
     apiService
       .fetchImages(options)
