@@ -26,7 +26,8 @@ class ImagesFinder extends Component {
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    const {loading } =this.state
+    const { loading } = this.state
+    
     if (loading) {
       this.fetchImages();
     }
@@ -48,7 +49,6 @@ class ImagesFinder extends Component {
       searchQuery,
       page,
     };
-
 
     apiService
       .fetchImages(options)

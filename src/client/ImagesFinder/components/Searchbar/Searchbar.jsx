@@ -21,6 +21,7 @@ class Searchbar extends Component {
     }
 
     render() {
+        const { query}=this.state
         const { handleSubmit, handleChange}=this
         return (
             <header className={styles.searchbar}>
@@ -31,7 +32,7 @@ class Searchbar extends Component {
                     <input
                         className={styles.searchFormInput}
                         type="text"
-                        value={this.state.query}
+                        value={query}
                         onChange={handleChange}
                         placeholder="Search images and photos"
                     />
