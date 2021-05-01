@@ -61,6 +61,7 @@ class ImagesFinder extends Component {
         this.setState(prevState => ({
           hits: [...prevState.hits, ...hits],
           page: prevState.page + 1,
+          loading: false
         }));
       })
       .catch(error =>
