@@ -8,8 +8,9 @@ function LoaderComponent() {
       <Loader
         type="ThreeDots"
         color="#3f51b5"
-        height={100}
-        width={100}
+        height={80}
+        width={80}
+        timeout={3000}
       />
     </div>
   );
