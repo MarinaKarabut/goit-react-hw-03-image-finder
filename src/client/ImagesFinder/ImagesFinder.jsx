@@ -99,7 +99,7 @@ class ImagesFinder extends Component {
         
         {loading && <Loader />}
 
-        {hits.length > 0 && !loading && <Button onClick={fetchImages} />}
+        {hits.length > 0 && !loading && <Button onClick={fetchImages}>Load more</Button>}
       </>
     );
   }
