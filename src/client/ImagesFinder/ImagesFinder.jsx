@@ -31,7 +31,7 @@ class ImagesFinder extends Component {
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     const { loading } = this.state
-    
+  
     if (loading) {
       this.fetchImages();
     }
@@ -72,12 +72,9 @@ class ImagesFinder extends Component {
         this.setState({ error: `Something went wrong. Try again!` }),
       )
       .finally(() => this.setState({ loading: false }));
+    
   
   };
-  ooLoadMore = () => {
-    this.setState({ loading:true})
-    this.fetchImages();
-  }
 
   toggleModal = (src) => {
     this.setState(({ showModal}) => ({
@@ -90,7 +87,7 @@ class ImagesFinder extends Component {
   render() {
     const { hits, loading, error, showModal, activeImg } = this.state;
 
-    const { onChangeQuery, ooLoadMore , listRef, toggleModal} = this;
+    const { onChangeQuery, fetchImages , listRef, toggleModal} = this;
     return (
       <>
         {showModal && <Modal onClose={toggleModal}>
@@ -107,7 +104,7 @@ class ImagesFinder extends Component {
         
         {loading && <Loader />}
 
-        {hits.length > 0 && !loading && <Button onClick={ooLoadMore}>Load more</Button>}
+        {hits.length > 0 && !loading && <Button onClick={fetchImages}>Load more</Button>}
       </>
     );
   }
